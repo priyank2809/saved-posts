@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: saved-posts-api
+    runtime: node
+    rootDir: server
+    plan: free
+    buildCommand: npm install
+    startCommand: npm run start:prod
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: PORT
+        value: 4000
+      - key: WEB_ORIGIN
+        value: http://localhost:5173
+      - key: DATABASE_PATH
+        value: ./data/dev.db
